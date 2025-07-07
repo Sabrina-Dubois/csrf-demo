@@ -6,11 +6,22 @@ Ce projet a pour but de démontrer ce qu’est une attaque **CSRF (Cross-Site Re
 
 ---
 
-
+## 📁 Structure du projet
+```
 csrf-demo/
-├── bank-unprotected/
-├── bank-protected/
-├── attacker-site/
+├── attacker/ 
+    ├── ui
+├── bank/                       
+│   ├── not-protected/
+│   │  └── business
+│   │  └── database
+│   │  └── ui
+│   ├── protected/
+│   │  └── business
+│   │  └── database
+│   │  └── ui
+└── README.md                                          
+```
 
 ## 🧪 Scénario d'attaque CSRF
 
@@ -65,33 +76,48 @@ csrf-demo/
 
 ## ⚙️ Installation & Lancement
 
-### 🔹 Cloner le projet
+### 1. Cloner le projet
 
-```bash
 # Clone du projet
+```
 git clone https://github.com/Sabrina-Dubois/csrf-demo.git
 cd csrf-demo
-
-
+```
 
 ---
 
-
-
-# Accès au dossier backend
-cd csrf-demo/backend
-
-# Build et lancement du backend
+### 2. Lancer la version non protégée
+### Backend
+```
+cd bank/not-protected/business
 ./mvnw spring-boot:run
-bash
+```
 
-
-# Dans un second terminal : frontend
-cd ../frontend
-
-# Installation des dépendances (si nécessaire)
+#### Frontend
+```
+cd bank/not-protected/ui
 npm install
-
-# Lancement de l'application frontend
 npm run dev
+```
 
+### 3. Lancer la version protégée
+### Backend
+```
+cd bank/protected/business
+./mvnw spring-boot:run
+```
+
+#### Frontend
+```
+cd bank/protected/ui
+npm install
+npm run dev
+```
+
+### 4. Site attaquant
+#### Frontend
+```
+cd attacker/ui
+npm install
+npm run dev
+```
