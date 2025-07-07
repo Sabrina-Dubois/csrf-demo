@@ -42,7 +42,7 @@ Ce projet montre comment une application web peut être vulnérable à une attaq
 
 ```bash
 # Clone du projet
-git clone https://github.com/TON_UTILISATEUR/csrf-demo-vulnerable.git
+git clone https://github.com/Sabrina-Dubois/csrf-demo.git
 
 # Accès au dossier backend
 cd csrf-demo/backend
