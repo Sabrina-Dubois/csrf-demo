@@ -1,48 +1,82 @@
-# ❌ Projet CSRF - Application **Vulnérable**
+# 🛡️ Projet CSRF – Démonstration d’une attaque et protections
 
 ## 🧪 Objectif
 
-Ce projet montre comment une application web peut être vulnérable à une attaque **CSRF** si elle ne met pas en place de protection spécifique.
+Ce projet a pour but de démontrer ce qu’est une attaque **CSRF (Cross-Site Request Forgery)**, comment elle fonctionne, et comment s’en protéger.
 
 ---
 
-## 📌 Fonctionnement
 
-- L’utilisateur se connecte à l’application.
-- Une requête `POST` modifie des données (retrait d'argent) **sans vérification**.
-- Un attaquant force l’utilisateur à envoyer cette requête à son insu.
-- Résultat : retrait malveillat **non autorisée**.
+csrf-demo/
+├── bank-unprotected/
+├── bank-protected/
+├── attacker-site/
+
+## 🧪 Scénario d'attaque CSRF
+
+1. L’utilisateur se connecte à l’application bancaire vulnérable (`bank-unprotected`).
+2. Il reste connecté avec une session active.
+3. Il visite un site malveillant (`attacker-site`).
+4. Ce site exécute une requête POST (ex : transfert d’argent) **à son insu**.
+5. La banque exécute la requête car aucune **protection CSRF** n’est mise en place.
 
 ---
 
-## ⚠️ Aucune protection CSRF
+## ✅ Composants
 
-- ❌ Aucun token généré
-- ❌ Requêtes acceptées dès lors que l’utilisateur est connecté
-- ✅ Permet de démontrer un scénario d’attaque
+### 1. `bank-unprotected` – ❌ Application vulnérable
+
+- ✅ Authentification utilisateur
+- ❌ Aucune protection CSRF
+- ❌ Aucune vérification de l’origine des requêtes
+- 💻 Backend : Spring Boot  
+- 🌐 Frontend : Vue.js  
+- 🛢️ Base de données : PostgreSQL
 
 ---
 
-## 🧪 Démonstration de l'attaque
+### 2. `bank-protected` – ✅ Application protégée
 
-1. L’utilisateur est connecté à sa banque.
-2. Il visite un site tiers malveillant contenant un fichier `attacker.html`.
-3. Ce fichier contient un formulaire caché qui envoie une requête `POST` vers le backend.
-4. Le backend accepte la requête car l’utilisateur est connecté.
-5. Un retrait d'argent est exécité **sans son consentement**.
+- ✅ Protection CSRF activée via Spring Security
+- ✅ Token CSRF injecté dans les formulaires / headers
+- ✅ Rejet des requêtes POST non sécurisées
+- 💻 Backend : Spring Boot  
+- 🌐 Frontend : Vue.js  
+- 🛢️ Base de données : PostgreSQL
+
+---
+
+### 3. `attacker-site` – ☠️ Site malveillant
+
+- Simple page HTML contenant :
+  - un formulaire caché
+  - une requête POST automatique vers la banque vulnérable
+- Objectif : déclencher une action **sans consentement**
 
 ---
 
 ## 🖥️ Technologies
 
-- Backend : Spring Boot 
-- Frontend : Vue.js
+- Spring Boot (backend)
+- Vue.js (frontend)
+- PostgreSQL (DB)
 
-## 📦 Installation
+---
+
+## ⚙️ Installation & Lancement
+
+### 🔹 Cloner le projet
 
 ```bash
 # Clone du projet
 git clone https://github.com/Sabrina-Dubois/csrf-demo.git
+cd csrf-demo
+
+
+
+---
+
+
 
 # Accès au dossier backend
 cd csrf-demo/backend
