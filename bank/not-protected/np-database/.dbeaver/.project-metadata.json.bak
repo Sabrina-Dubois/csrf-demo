@@ -1,0 +1,1 @@
+{"resources":{"Scripts/ddl.sql":{"default-datasource":"postgres-jdbc-197e643b547-7920adf55c8ff63","default-catalog":"csrf_np_db","default-schema":"public"},"Scripts/dml.sql":{"default-datasource":"postgres-jdbc-197e643b547-7920adf55c8ff63","default-catalog":"csrf_np_db","default-schema":"public"}}}
