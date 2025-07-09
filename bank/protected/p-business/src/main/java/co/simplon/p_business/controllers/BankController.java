@@ -33,7 +33,7 @@ public class BankController {
 
 	@PostMapping("/transfer")
 	public ResponseEntity<String> transfer(@RequestParam String toAccountNumber, @RequestParam int amount,
-			@CookieValue(value = "SESSION_ID", defaultValue = "") String sessionId) {
+			@CookieValue(value = "JSESSIONID", defaultValue = "") String sessionId) {
 
 		if (sessionId == null) {
 			return ResponseEntity.status(401).body("Not autorised login");

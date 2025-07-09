@@ -34,7 +34,7 @@ public class BankService {
 		User user = usersRepo.findByUsername(inputs.username());
 		if (user != null && user.getPassword().equals(inputs.password())) {
 			String sessionID = UUID.randomUUID().toString();
-			Cookie cookie = new Cookie("SESSION_ID", sessionID);
+			Cookie cookie = new Cookie("JSESSIONID", sessionID);
 			// cookie.setAttribute("SameSite", "None");
 			// cookie.setSecure(true);// added on 13th may
 			response.addCookie(cookie);

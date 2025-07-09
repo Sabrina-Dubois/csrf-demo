@@ -46,6 +46,7 @@ export default {
 		},
 
 		async login() {
+			
 			if (!this.username || !this.password) {
 				alert("Please fill all fields");
 				return;
