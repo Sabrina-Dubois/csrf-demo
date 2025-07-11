@@ -1,4 +1,4 @@
-package co.simplon.np_business.dos;
+package co.simplon.p_business.dos;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
