@@ -14,6 +14,7 @@ import co.simplon.p_business.repositories.UserRepository;
 import co.simplon.p_business.repositories.UserSessionRepository;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @Service
@@ -53,6 +54,7 @@ public class BankService {
 		return userSessionsRepo.existsBySessionId(sessionId);
 	}
 
+	@Transactional
 	public void transfer(String toAccountNumber, int amount, String sessionId) {
 
 		Account toAccount = accountsRepo.findByAccountNumber(toAccountNumber);
